@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <b>Trình duyệt Anti-Detect thế hệ mới với nhân Chromium Patch Native C++ Blink</b><br>
-  Khớp 100% TLS Fingerprint JA3/JA4 · Vượt qua CreepJS, Pixelscan, BrowserLeaks, Cloudflare Turnstile · Tối ưu hiệu năng vượt bậc
+  <b>Next-Generation Anti-Detect Browser Powered by Native C++ Blink-Patched Chromium Core</b><br>
+  100% TLS JA3/JA4 Fingerprint Alignment · Bypasses CreepJS, Pixelscan, BrowserLeaks, Cloudflare Turnstile · Ultra-Optimized Performance
 </p>
 
 <p align="center">
@@ -14,136 +14,192 @@
   <img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011%20(64--bit)-success" alt="Platform">
   <img src="https://img.shields.io/badge/Engine-Chromium%20Native%20Patched%20C%2B%2B-blueviolet" alt="Chromium Native">
   <img src="https://img.shields.io/badge/Security-Local%20First%20%7C%20Zero%20Telemetry-green" alt="Security">
+  <a href="README_VI.md"><img src="https://img.shields.io/badge/Language-Ti%E1%BA%BFng%20Vi%E1%BB%87t-informational" alt="Tiếng Việt"></a>
 </p>
 
+> [!NOTE]
+> **Looking for Vietnamese documentation?**  
+> Vui lòng xem tài liệu hướng dẫn tiếng Việt tại [README_VI.md](README_VI.md).
+
 ---
 
-## 🌟 1. Điểm Mạnh Vượt Trội Của MultiBrowser Manager
+## 🌟 1. Key Advantages of MultiBrowser Manager
 
-Khác biệt hoàn toàn với các phần mềm nuôi tài khoản thông thường dùng JavaScript injection (rất dễ bị phát hiện bởi các hệ thống chống gian lận hiện đại), **MultiBrowser Manager** được thiết kế từ cấp độ lõi:
+Unlike conventional account management tools that rely on JavaScript runtime injection (which are easily detected by modern anti-fraud systems), **MultiBrowser Manager** is re-engineered directly at the Chromium kernel level:
 
-| Đặc tính kỹ thuật | MultiBrowser Manager (Native C++) | Trình duyệt Antidetect thông thường (JS Injection) |
+| Technical Feature | MultiBrowser Manager (Native C++) | Conventional Anti-Detect Browsers (JS Injection) |
 |---|:---:|:---:|
-| **Phương thức can thiệp vân tay** | **Native C++ Blink Level** (Biên dịch trực tiếp vào nhân Chromium) | Chèn JavaScript đè `navigator`, `WebGLRenderingContext` |
-| **Bypass kiểm tra bot nâng cao** | **Đạt điểm tuyệt đối** trên CreepJS, Pixelscan, Incolumitas, BrowserLeaks | Dễ bị lộ thuộc tính sửa đổi (`toString()`, `getOwnPropertyDescriptor`) |
-| **TLS / SSL Fingerprint (JA3 / JA4)** | **Khớp 100%** gói tin mạng của Google Chrome gốc | Thường bị lệch Cipher Suites hoặc Extension Orders |
-| **Tiêu thụ tài nguyên (RAM / CPU)** | **Cực nhẹ**, chạy trực tiếp trên Windows Native, không cần máy ảo | Thường nặng nề, tốn nhiều RAM khi mở đồng thời nhiều profile |
-| **Bảo mật dữ liệu** | **Local-First 100%**: Dữ liệu SQLite, Cookie, Token lưu trên máy khách | Nhiều tool tự ý đồng bộ dữ liệu người dùng lên server bên thứ ba |
-| **Hỗ trợ tự động hóa (Automation)** | Trình điều khiển CDP Native tốc độ cao, hỗ trợ Puppeteer / Playwright | Dễ bị treo hoặc đứt kết nối khi mở số lượng lớn |
+| **Fingerprint Spoofing Method** | **Native C++ Blink Level** (Directly compiled into the Chromium engine) | Injects JavaScript overrides (`navigator`, `WebGLRenderingContext`) |
+| **Advanced Bot Detection Bypass** | **100% Pass Rate** on CreepJS, Pixelscan, Incolumitas, BrowserLeaks | Readily exposes modified prototype descriptors (`toString()`, `getOwnPropertyDescriptor`) |
+| **TLS / SSL Fingerprint (JA3 / JA4)** | **100% Match** with genuine Google Chrome network packets | Frequently deviates in Cipher Suites, Extension Orders, or HTTP/2 settings |
+| **Resource Consumption (RAM / CPU)** | **Ultra-Lightweight**, runs natively on Windows without virtual machines | Resource-heavy, consumes substantial RAM when running multiple profiles |
+| **Data Privacy & Security** | **100% Local-First**: SQLite database, cookies, and tokens stored locally on your machine | Many tools covertly sync sensitive user data to third-party cloud servers |
+| **Automation Support** | High-speed Native CDP controller with full Puppeteer / Playwright support | Prone to freezing, lag, or pipe disconnection under high profile concurrency |
 
-### Các Tính Năng Nổi Bật:
-1. **Cách ly phần cứng & Môi trường độc lập hoàn toàn:**
-   - **Canvas & WebGL:** Thuật toán tạo nhiễu noise thông minh, nhất quán trên từng profile mà không làm biến dạng hình ảnh render.
-   - **WebGPU & Hardware Concurrency:** Giả lập trung thực số lõi CPU, bộ nhớ RAM, GPU Vendor và Renderer (NVIDIA, AMD, Intel, Apple Silicon).
-   - **AudioContext & SpeechSynthesis:** Giả lập tần số âm thanh và danh sách giọng đọc hệ thống theo từng hệ điều hành.
-   - **Font Fingerprinting:** Giả lập danh sách font chữ chính xác theo Windows, macOS hoặc Linux.
-   - **WebRTC & Geolocation:** Chặn rò rỉ IP thật (WebRTC Leak Protection), tự động đồng bộ múi giờ (Timezone), ngôn ngữ (Accept-Language) và tọa độ vị trí theo IP Proxy.
+### Highlighted Features:
 
-2. **Quản lý Proxy Thông Minh:**
-   - Hỗ trợ đầy đủ các giao thức: **HTTP, HTTPS, SOCKS5** (có hoặc không có User/Pass).
-   - Cơ chế kiểm tra trạng thái Proxy thời gian thực (IP, quốc gia, độ trễ Ping) trước khi mở trình duyệt.
+1. **Complete Hardware & Environment Isolation:**
+   - **Canvas & WebGL:** Smart noise generation algorithm providing consistent hashing per profile without graphical distortion.
+   - **WebGPU & Hardware Concurrency:** Authentic emulation of CPU core counts, RAM capacity, GPU Vendor, and Renderer (NVIDIA, AMD, Intel, Apple Silicon).
+   - **AudioContext & SpeechSynthesis:** Realistic audio sample frequencies and OS-specific speech synthesis voice lists.
+   - **Font Fingerprinting:** Whitelisted font sets aligned with the target operating system (Windows, macOS, or Linux).
+   - **WebRTC & Geolocation:** Strict WebRTC leak protection (zero real IP leaks), with automatic synchronization of Timezone (`Intl.DateTimeFormat`), Accept-Language headers, and geolocation coordinates matching your Proxy IP.
 
-3. **Hệ thống Quản lý Cookie & Tài khoản Tiện Lợi:**
-   - Import / Export Cookie định dạng JSON, Netscape.
-   - Tự động mã hóa mật khẩu và token bằng thuật toán AES-256 an toàn.
+2. **Smart Proxy Management:**
+   - Full protocol support: **HTTP, HTTPS, SOCKS5** (with or without username/password authentication).
+   - Real-time proxy health checks (IP address, country, ping latency) before launching any browser profile.
 
----
-
-## 🚀 2. Hướng Dẫn Tải Về & Cài Đặt
-
-### Yêu Cầu Hệ Thống
-- **Hệ điều hành:** Windows 10 / Windows 11 (64-bit).
-- **RAM:** Tối thiểu 4 GB (Khuyến nghị 8 GB trở lên nếu chạy nhiều profile cùng lúc).
-- **Ổ cứng:** Tối thiểu 1 GB dung lượng trống.
-
-### Cách 1: Cài Đặt Bản Full Mới Nhất (Dành cho người dùng mới)
-1. Truy cập trang phát hành: 👉 **[Tải Bản Cập Nhật Mới Nhất Tại Đây](https://github.com/ntdphi004/MultiBrowser-Manager-Release/releases/latest)**
-2. Tải file cài đặt (ví dụ: `MultiBrowser-Manager-vX.Y.Z-customer-full.zip`).
-3. Giải nén file `.zip` vào một thư mục bất kỳ (ví dụ: `D:\MultiBrowser-Manager`).
-4. Double-click file **`MultiBrowser.exe`** (hoặc `CAI_TAT_CA.bat` nếu muốn cài đặt tự động toàn bộ môi trường).
-5. Ứng dụng sẽ tự động khởi động và mở giao diện quản lý trên trình duyệt tại địa chỉ: `http://127.0.0.1:8080`.
-
-### Cách 2: Cập Nhật Nhanh Bằng 1-Click (Dành cho người dùng đang sử dụng)
-- **Cách A (Trên giao diện Web):** Khi có phiên bản mới, trên Dashboard sẽ xuất hiện thông báo cập nhật -> Bấm **"Cập nhật ngay"** -> **"Khởi động lại & Áp dụng"**.
-- **Cách B (Khay hệ thống Windows Tray):** Chuột phải vào biểu tượng MultiBrowser ở góc phải màn hình -> Chọn **"Check for updates..."** (Kiểm tra cập nhật).
-- **Cách C (File Batch 1-Click):** Double-click file **`CAP_NHAT.bat`** (hoặc `UPDATE.bat`) trong thư mục ứng dụng. Script sẽ tự động tải bản vá siêu nhẹ (~15-25MB), sao lưu và cập nhật trong vài giây mà **không làm mất dữ liệu profile hay cấu hình**.
+3. **Convenient Account & Cookie Management:**
+   - Import and Export cookies in JSON and Netscape formats.
+   - Automated AES-256 encryption for stored passwords and tokens.
 
 ---
 
-## 📖 3. Hướng Dẫn Sử Dụng Cơ Bản
+## 🚀 2. Download & Installation Guide
 
-### Bước 1: Tạo Profile Trình Duyệt Mới
-1. Bấm vào nút **"Tạo Profile"** (+ New Profile).
-2. Điền tên profile (ví dụ: `Facebook_Acc_01`, `Amazon_Store_02`).
-3. Chọn hệ điều hành giả lập (Windows / macOS / Linux) và phiên bản trình duyệt.
-4. Cấu hình Fingerprint: Hệ thống đã chọn sẵn cấu hình ngẫu nhiên tối ưu nhất. Bạn có thể tùy chỉnh thêm Canvas, WebGL, Audio nếu có nhu cầu chuyên sâu.
+### System Requirements
+- **Operating System:** Windows 10 / Windows 11 (64-bit) *(Linux / macOS supported via Docker / source build)*.
+- **RAM:** Minimum 4 GB (8 GB or more recommended for concurrent profiles).
+- **Storage:** Minimum 1 GB available disk space.
 
-### Bước 2: Gắn Proxy Cho Profile
-1. Trong mục **Cấu hình Proxy**, chọn loại proxy (HTTP / HTTPS / SOCKS5).
-2. Nhập theo định dạng: `IP:PORT` hoặc `IP:PORT:USERNAME:PASSWORD`.
-3. Bấm **"Kiểm tra Proxy"** (Check Proxy) để đảm bảo IP hoạt động tốt và nhận diện đúng quốc gia.
+### Method 1: Fresh Full Package Install (For New Users)
+1. Visit the official release page: 👉 **[Download Latest Release Here](https://github.com/ntdphi004/MultiBrowser-Manager-Release/releases/latest)**
+2. Download the installation archive (e.g., `MultiBrowser-Manager-vX.Y.Z-customer-full.zip`).
+3. Extract the `.zip` archive into any folder (e.g., `D:\MultiBrowser-Manager`).
+4. Double-click **`MultiBrowser.exe`** (or `CAI_TAT_CA.bat` to automatically set up the entire environment).
+5. The application will start and automatically open the management dashboard in your browser at: `http://127.0.0.1:8080`.
 
-### Bước 3: Khởi Chạy Profile
-1. Bấm nút **"Mở Profile"** (Launch).
-2. Trình duyệt chống phát hiện sẽ mở ra với đầy đủ thông số vân tay và IP của proxy đã chọn.
-3. Bạn có thể sử dụng các trang web như [browserleaks.com](https://browserleaks.com), [creepjs](https://abrahamjuliot.github.io/creepjs/) để kiểm tra độ tin cậy của profile.
+### Method 2: 1-Click Fast Update (For Existing Users)
+- **Method A (Via Web Dashboard):** When a new version is available, an update banner appears on the Dashboard -> Click **"Update Now"** -> **"Restart & Apply"**.
+- **Method B (Windows System Tray):** Right-click the MultiBrowser icon in the Windows notification area -> Select **"Check for updates..."**.
+- **Method C (1-Click Batch File):** Double-click **`CAP_NHAT.bat`** (or `UPDATE.bat`) in the application root folder. The script downloads a lightweight patch (~15-25 MB), creates a backup, and updates within seconds **without losing any profile data or settings**.
 
----
-
-## 🛠️ 4. Các Lỗi Thường Gặp & Cách Khắc Phục (Troubleshooting)
-
-### ❓ Lỗi 1: Windows Defender / Antivirus cảnh báo hoặc chặn file `.exe` / `.bat`
-- **Nguyên nhân:** Do phần mềm được biên dịch AOT Native và chưa đăng ký chứng chỉ số đắt tiền của Microsoft (Code Signing Certificate), Windows SmartScreen có thể hiển thị cảnh báo *"Windows protected your PC"*.
-- **Cách xử lý:**
-  1. Khi xuất hiện bảng cảnh báo màu xanh của Windows SmartScreen, bấm **"More info"** -> Bấm **"Run anyway"**.
-  2. Để tránh bị trình diệt virus quét nhầm trong quá trình chạy, hãy thêm thư mục cài đặt MultiBrowser Manager vào danh sách loại trừ (**Exclusion**) của Windows Security / Antivirus.
-
-### ❓ Lỗi 2: Proxy báo lỗi không kết nối được hoặc tải trang bị Timeout
-- **Nguyên nhân:** 
-  - Proxy bị die, sai cổng hoặc sai user/password.
-  - Một số proxy IP xoay (Rotating Proxy) có thể mất vài giây để kích hoạt IP mới.
-- **Cách xử lý:**
-  1. Kiểm tra lại định dạng: đảm bảo không có khoảng trắng thừa ở đầu/cuối chuỗi proxy.
-  2. Đổi giao thức thử giữa HTTP và SOCKS5.
-  3. Bấm nút "Kiểm tra Proxy" trong giao diện Profile để xem mã lỗi chi tiết.
-
-### ❓ Lỗi 3: Không mở được trang quản trị `http://127.0.0.1:8080` (Trùng cổng Port 8080)
-- **Nguyên nhân:** Cổng 8080 đang bị một phần mềm khác trên máy bạn chiếm dụng (như phần mềm kế toán, web server cục bộ, Docker).
-- **Cách xử lý:**
-  1. Mở file `.env` trong thư mục cài đặt bằng Notepad.
-  2. Tìm dòng `MB_PORT=8080` và đổi thành cổng khác (ví dụ: `MB_PORT=8090` hoặc `MB_PORT=8888`).
-  3. Bật lại `MultiBrowser.exe` và truy cập vào địa chỉ cổng mới.
-
-### ❓ Lỗi 4: Báo lỗi file bị khóa khi cập nhật (File is locked by another process)
-- **Nguyên nhân:** Trình duyệt hoặc tiến trình `MultiBrowser.exe` cũ vẫn còn đang chạy ngầm khi cố gắng ghi đè file mới.
-- **Cách xử lý:**
-  1. Double-click file **`CAP_NHAT.bat`**.
-  2. Script đã được tích hợp cơ chế tự động tìm và tắt an toàn tất cả tiến trình liên quan trước khi giải nén đè bản vá.
-  3. Nếu vẫn báo lỗi, hãy mở *Task Manager* (Ctrl+Shift+Esc), tắt các tiến trình `MultiBrowser.exe` hoặc `chrome.exe` rồi chạy lại `CAP_NHAT.bat`.
-
-### ❓ Lỗi 5: Làm thế nào để sao lưu (Backup) toàn bộ dữ liệu Profile?
-- Toàn bộ dữ liệu tài khoản, lịch sử duyệt web và cấu hình profile được lưu trữ tại:
-  `%USERPROFILE%\.multibrowser-manager\` (thường là `C:\Users\<Tên_Bạn>\.multibrowser-manager\`).
-- Để sao lưu sang máy khác hoặc dự phòng, bạn chỉ cần copy nguyên thư mục này lưu trữ an toàn.
+### Method 3: Docker Deployment (Self-Hosted Server / Linux)
+```bash
+git clone https://github.com/ntdphi004/MultiBrowser-Manager.git
+cd MultiBrowser-Manager
+docker compose up --build -d
+```
+Access the dashboard at `http://localhost:8080`.
 
 ---
 
-## 🔒 5. Chính Sách Bảo Mật & Quyền Riêng Tư
+## 📖 3. Basic Usage Guide
 
-- **Zero Telemetry:** Ứng dụng không thu thập lịch sử duyệt web, cookie, tài khoản hay hành vi sử dụng của bạn.
-- **Local Storage:** Cơ sở dữ liệu SQLite và khóa mã hóa nằm hoàn toàn trên thiết bị của bạn.
-- **Safe Updates:** Các bản vá cập nhật chỉ chứa file thực thi đã biên dịch và tài nguyên giao diện, được kiểm tra mã băm toàn vẹn **SHA256** trước khi áp dụng.
+### Step 1: Create a New Browser Profile
+1. Click the **"+ New Profile"** button.
+2. Enter a profile name (e.g., `Facebook_Acc_01`, `Amazon_Store_02`).
+3. Select the emulated Operating System (Windows / macOS / Linux) and browser version.
+4. Fingerprint Configuration: The system automatically generates an optimal, realistic randomized fingerprint. You can customize Canvas, WebGL, or Audio settings if advanced tweaking is needed.
+
+### Step 2: Assign a Proxy to the Profile
+1. In the **Proxy Configuration** section, select your proxy protocol (HTTP / HTTPS / SOCKS5).
+2. Enter the proxy string: `IP:PORT` or `IP:PORT:USERNAME:PASSWORD`.
+3. Click **"Check Proxy"** to verify that the IP is active and the country is correctly detected.
+
+### Step 3: Launch the Profile
+1. Click **"Launch"** (Open Profile).
+2. The anti-detect browser will open with the configured fingerprint parameters and proxy routing.
+3. Verify profile integrity and stealth on platforms such as [browserleaks.com](https://browserleaks.com), [creepjs](https://abrahamjuliot.github.io/creepjs/), [pixelscan.net](https://pixelscan.net), or [iphey.com](https://iphey.com).
 
 ---
 
-## 📞 6. Hỗ Trợ & Liên Hệ
+## 🤖 4. Automation & Developer API (CDP / Playwright / Puppeteer)
 
-Nếu bạn gặp bất kỳ khó khăn nào trong quá trình cài đặt và sử dụng, vui lòng liên hệ:
-- **GitHub Issues:** [Gửi yêu cầu hỗ trợ / Báo lỗi](https://github.com/ntdphi004/MultiBrowser-Manager-Release/issues)
+MultiBrowser Manager provides full Chrome DevTools Protocol (CDP) connectivity and a REST API:
+
+### Playwright Python Example
+```python
+import asyncio
+import httpx
+from playwright.async_api import async_playwright
+
+MB_BASE_URL = "http://127.0.0.1:8080"
+PROFILE_ID = "your-profile-id"
+
+async def main():
+    # 1. Launch profile via MultiBrowser REST API
+    async with httpx.AsyncClient() as client:
+        res = await client.post(f"{MB_BASE_URL}/api/profiles/{PROFILE_ID}/launch")
+        cdp_endpoint = res.json()["cdp_endpoint"]
+
+    # 2. Connect Playwright over CDP
+    async with async_playwright() as p:
+        browser = await p.chromium.connect_over_cdp(cdp_endpoint)
+        context = browser.contexts[0]
+        page = context.pages[0] if context.pages else await context.new_page()
+
+        # 3. Perform automation
+        await page.goto("https://pixelscan.net")
+        print("Page Title:", await page.title())
+        await browser.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### REST API Endpoints
+- **Create Profile:** `POST http://127.0.0.1:8080/api/profiles`
+- **Launch Profile:** `POST http://127.0.0.1:8080/api/profiles/{id}/launch`
+- **Stop Profile:** `POST http://127.0.0.1:8080/api/profiles/{id}/stop`
+- **API Documentation:** Visit `http://127.0.0.1:8080/docs` (Swagger UI).
+
+---
+
+## 🛠️ 5. Frequently Asked Questions & Troubleshooting
+
+### ❓ Issue 1: Windows Defender / Antivirus warns or blocks `.exe` / `.bat` files
+- **Cause:** MultiBrowser Manager is compiled with AOT Native C++ and does not yet use an expensive commercial Microsoft Code Signing Certificate, which may prompt Windows SmartScreen (*"Windows protected your PC"*).
+- **Resolution:**
+  1. When the blue Windows SmartScreen popup appears, click **"More info"** -> Click **"Run anyway"**.
+  2. To avoid false-positive scans during operation, add the MultiBrowser Manager installation folder to your Antivirus / Windows Security **Exclusion list**.
+
+### ❓ Issue 2: Proxy connection failure or page load timeout
+- **Cause:** 
+  - Proxy is inactive, incorrect port, or wrong username/password.
+  - Rotating proxies may take several seconds to assign a new active IP.
+- **Resolution:**
+  1. Verify the format: Ensure there are no leading or trailing whitespace characters.
+  2. Try switching between HTTP and SOCKS5 protocols.
+  3. Click **"Check Proxy"** in the profile settings to inspect the detailed status code.
+
+### ❓ Issue 3: Cannot open dashboard at `http://127.0.0.1:8080` (Port 8080 Conflict)
+- **Cause:** Port 8080 is already occupied by another application (e.g., local server, accounting software, Docker).
+- **Resolution:**
+  1. Open the `.env` file in the installation root directory with Notepad.
+  2. Locate the line `MB_PORT=8080` and change it to another port (e.g., `MB_PORT=8090` or `MB_PORT=8888`).
+  3. Restart `MultiBrowser.exe` and access the new port in your browser.
+
+### ❓ Issue 4: "File is locked by another process" during update
+- **Cause:** A previous browser instance or `MultiBrowser.exe` process is still running in the background when attempting to overwrite files.
+- **Resolution:**
+  1. Double-click **`CAP_NHAT.bat`**.
+  2. The update script automatically finds and gracefully terminates associated processes before extracting the patch.
+  3. If the issue persists, open *Task Manager* (Ctrl+Shift+Esc), terminate any remaining `MultiBrowser.exe` or `chrome.exe` processes, and rerun `CAP_NHAT.bat`.
+
+### ❓ Issue 5: How to back up all Profile data?
+- All account profiles, browser cookies, history, and local settings are stored in:
+  `%USERPROFILE%\.multibrowser-manager\` (typically `C:\Users\<Your_Username>\.multibrowser-manager\`).
+- To back up or transfer your data to another machine, simply copy and safely archive this directory.
+
+---
+
+## 🔒 6. Security & Privacy Policy
+
+- **Zero Telemetry:** The application collects zero browsing history, cookies, credentials, or personal telemetry.
+- **Local Storage:** SQLite databases and encryption keys reside 100% locally on your machine.
+- **Safe Updates:** Update patches contain only pre-compiled binaries and frontend UI assets, verified via **SHA-256** checksums before being applied.
+
+---
+
+## 📞 7. Support & Community
+
+If you encounter any difficulties during installation or operation, feel free to reach out:
+- **GitHub Issues:** [Submit Bug Report / Feature Request](https://github.com/ntdphi004/MultiBrowser-Manager-Release/issues)
 - **Telegram Bot:** [@MultiBrowser_Bot](https://t.me/MultiBrowser_Bot)
 
 ---
 
 <p align="center">
-  <i>MultiBrowser Manager — Giải pháp tối thượng cho bảo vệ danh tính số và vận hành tài khoản an toàn.</i>
+  <i>MultiBrowser Manager — The ultimate solution for digital identity protection and secure multi-account operations.</i>
 </p>
